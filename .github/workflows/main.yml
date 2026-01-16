@@ -11,7 +11,6 @@ on:
     
     # 7:30 PM IST (Every day) -> 14:00 UTC
     - cron: '0 14 * * *'
-    
     # 11:30 AM IST (Mon-Fri) -> 06:00 UTC
     - cron: '0 6 * * 1-5'
    
