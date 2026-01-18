@@ -45,10 +45,30 @@ jobs:
         with:
           name: Newman-Report
           path: newman/
-
       - name: Deploy report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: newman/
+
+      - name: Send Email Notification
+        if: always()
+        uses: dawidd6/action-send-mail@v7
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Phoenix Inwarranty Flow Test Execution Notification
+          to: mona@gmail.com
+          from: ${{ secrets.EMAIL_USERNAME }}
+          body: |
+            Hi,
+
+            Phoenix Inwarranty Flow has been executed successfully.
+            The report has been published and the URL is:
+            https://monalibendale31.github.io/API-Phoenix-In-Warranty-Flow/
+            
+      
+          
