@@ -4,14 +4,14 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-  schedule:
-    # 8:00 AM IST (Every day) -> 02:30 UTC
-    - cron: '30 2 * * *'
-    # 7:30 PM IST (Every day) -> 14:00 UTC
-    - cron: '0 14 * * *'
-    # 11:30 AM IST (Mon-Fri) -> 06:00 UTC
-    - cron: '0 6 * * 1-5'
+  /*workflow_dispatch:
+  //schedule:
+    //# 8:00 AM IST (Every day) -> 02:30 UTC
+   // - cron: '30 2 * * *'
+   // # 7:30 PM IST (Every day) -> 14:00 UTC
+   // - cron: '0 14 * * *'
+   // # 11:30 AM IST (Mon-Fri) -> 06:00 UTC
+- cron: '0 6 * * 1-5' */
 
 jobs:
   run-postman-tests:
